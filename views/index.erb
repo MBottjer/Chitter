@@ -1,0 +1,5 @@
+<% @peeps.each do |peep| %>
+<h5> <%= peep.name %> @<%= peep.user_name %>:</h5>
+<p><%= peep.post %></p>
+<p id="time"><%= peep.created_at %></p>
+<% end %>

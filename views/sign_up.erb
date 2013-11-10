@@ -1,0 +1,12 @@
+<div id="sign_up">
+
+  <h1> Please Sign Up Below </h1> 
+    <form action="/sign_up" method="post">
+      <input type="text" name="email" placeholder="Email" value="<%@user.email%>">
+      <input type="password" name ="password" placeholder="Password">
+      <input type="password" name="password_confirmation" placeholder="Password Confirmation">
+      <input type="text" name="name" placeholder="Name" value="<%@user.name%>">
+      <input type="text" name="user_name" placeholder="User Name" value="<%@user.user_name%>">
+      <input type="submit" value="Sign Up">
+    </form>
+</div>

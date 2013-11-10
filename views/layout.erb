@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Chitter</title>
+    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+    <h1 id="first">Chitter</h1>
+    <div id="welcome">
+    <% if current_user %>
+    Welcome, <%= current_user.user_name %>
+    <% end %>
+    </div>
+    <form method="post" action="/sign_out">
+          <input type="hidden" name="_method" value="delete">
+          <input id="sign_out" type="submit" value="Sign Out">
+    </form>
+    <% if flash[:notice] %>
+        <div id="notice">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <nav>
+    <a href="/sign_up">Sign Up ||</a>
+    <a href="/sign_in">Sign In ||</a>
+    <a href="/peep">Peep</a>
+  </nav>
+    </header> 
+    <section id="stream">
+      <strong>Chitter Feed</strong>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Sorry, there were the following problems with the form. 
+        <ul id="errors">
+          <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <%= yield %>
+    </section>
+  </body>
+</html>
